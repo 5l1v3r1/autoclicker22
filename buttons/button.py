@@ -1,5 +1,6 @@
 import json
 from pynput.mouse import Controller
+import random
 
 
 class Button():
@@ -31,3 +32,24 @@ class Button():
 		with open("./settings.json", "w") as f:
 			f.write(json.dumps(settings))
 			f.close()
+
+	def get_cps(self):
+		if self.settings["random"] == 0:
+			return self.settings["cps"]
+		else:
+			cps = self.settings["cps"]
+			if cps > 3:
+				count = random.randint(-3,3)
+			elif cps < 3 and cps != 1:
+				count = random.randint(-1,3)
+			else:
+				count = random.randint(0,3)
+			base = random.randint(0,110)
+			randomiz = self.settings["random"]
+
+			if randomiz > base:
+				print(cps + count)
+				return cps + count
+			else:
+				print(cps)
+				return cps

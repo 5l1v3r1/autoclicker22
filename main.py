@@ -35,7 +35,7 @@ def click_btn(btn):
 							btn.double_click()
 					else:
 						btn.click()
-			time.sleep(1/btn.settings["cps"])
+			time.sleep(1/btn.get_cps())
 
 		elif btn.name == "right":
 			if btn.settings["hold"]:
@@ -50,7 +50,7 @@ def click_btn(btn):
 							btn.double_click()
 					else:
 						btn.click()
-			time.sleep(1/btn.settings["cps"])
+			time.sleep(1/btn.get_cps())
 
 			
 
