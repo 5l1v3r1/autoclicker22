@@ -48,8 +48,6 @@ class Button():
 			randomiz = self.settings["random"]
 
 			if randomiz > base:
-				print(cps + count)
 				return cps + count
 			else:
-				print(cps)
 				return cps
