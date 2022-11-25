@@ -3,20 +3,20 @@ from PyQt5 import QtWidgets, uic
 class Ui(QtWidgets.QMainWindow):
     def __init__(self, leftHandler, rightHandler):
         super(Ui, self).__init__()
-        uic.loadUi('form.ui', self)
+        uic.loadUi('ui/main.ui', self)
         self.show()
 
-        self.setMinimumWidth(424)
-        self.setMinimumHeight(328)
-        self.setMaximumWidth(424)
-        self.setMaximumHeight(328)
-        self.setWindowTitle("Autoclicker")
+        self.setMinimumWidth(419)
+        self.setMinimumHeight(333)
+        self.setMaximumWidth(419)
+        self.setMaximumHeight(333)
+        self.setWindowTitle("Autoclicker - Github/ngn13")
 
         #spinbox
-        self.leftSB.setMinimum(0)
-        self.rightSB.setMinimum(0)
-        self.leftSB.setMaximum(70)
-        self.rightSB.setMaximum(70)
+        self.leftSB.setMinimum(1)
+        self.rightSB.setMinimum(1)
+        self.leftSB.setMaximum(200)
+        self.rightSB.setMaximum(200)
 
         self.leftSB.setValue(leftHandler.btn.settings["cps"])
         self.rightSB.setValue(rightHandler.btn.settings["cps"])
@@ -44,20 +44,6 @@ class Ui(QtWidgets.QMainWindow):
             self.right1CB.setCheckState(2)
         else:
             self.right1CB.setCheckState(0)
-
-        #checkbox2
-        self.left2CB.stateChanged.connect(leftHandler.set_double)
-        self.right2CB.stateChanged.connect(rightHandler.set_double)
-
-        if leftHandler.btn.settings["double"]:
-            self.left2CB.setCheckState(2)
-        else:
-            self.left2CB.setCheckState(0)
-
-        if rightHandler.btn.settings["double"]:
-            self.right2CB.setCheckState(2)
-        else:
-            self.right2CB.setCheckState(0)
 
         #lineEdit
         self.leftHotkey.setMaxLength(10)
